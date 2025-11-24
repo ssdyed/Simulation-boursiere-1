@@ -13,4 +13,4 @@ Projet réalisé en Python avec Streamlit pout visualiser la puissance des inté
 pip install -r requirements.txt
 
 2. Lancer l'application :
-streamlit run app.py
+streamlit run app.py 
