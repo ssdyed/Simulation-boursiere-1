@@ -1,16 +1,25 @@
-# Simulateur de rentabilité boursière
+# Simulateur t prédicteur boursier (Monte Carlo)
 
-Une application web interactive pour simuler les rendements potentiels d'un investissement boursier basé sur des données historiques (2004-2024).
-Projet réalisé en Python avec Streamlit pout visualiser la puissance des intérêts composés. 
+Une application web "Full stack" pour analyser les performances passées d'une action et projeter ses futurs possibles grâce aux statistiques.
 
-## Fonctionnalités
-- **Données réelles** : Récupération automatique via l'API Yahoo Finance.
-- **Calculs financier** : Simulation de l'évolution d'un capital initial et calcul du retour sur l'investissement.
-- **Visualisation** : Graphiques interactifs avec Plotly
+Projet réalisé en Python.
 
-## Installation à faire pour lancer le projet
-1. Installer les dépendances (versions exactes) : 
-pip install -r requirements.txt
+## Fonctionnalités clés
 
-2. Lancer l'application :
-streamlit run app.py 
+### i. Analyse historique (le passé)
+- Récupération de données financières en temps réel via l'API ** Yahoo Finance**.
+- Calcul de la rentabilité réelle d'un investissement.
+- compraison dynamique entre le capital investi et la valeur actuelle.
+
+### ii. Prédiction Monte Carlo (le futur)
+- **Moteur statistique** : Génération de **1000 scénarios*** d'volution du prix sur 1 an (n=365 jours)
+- **Modèle mathématique** : Utilisation du Mouvement Brownien Géométrique (drift + volatilité stochastique)
+- **Gestion des risques** : Calcul automatique de la valeur à laquelle l'on serait à risque à un niveau de confiance de 95% ; et du prix médian cible.
+- **Visualisation** : Affichage de 50 trajectoires réprésentatives. Les 1000 scénarios ne sont pas affichés pour avoir une meilleure fluidité.
+
+## Stack technique
+- **Langage :** Python
+- **Interface Web :** Streamlit
+- **Callcul scientifique :** NumPy, Pandas
+- **Data visualisation :** Plotly interactive
+- **Flux de données :** yFiannce API 
