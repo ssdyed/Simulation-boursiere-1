@@ -64,7 +64,7 @@ if not data.empty and len(data) > 0 :
     st.caption("Simulation de 1000 scénarios futurs basés sur la volatilité historique")
 
     # Paramètres de simulation
-    np.random(71)
+    np.random.seed(71)
     jours_predits = 365        # 1 an = 365 jours
     scenarios_calcul = 1000    # on fait le calcul avec 1000 scenarios
     scenarios_visuel = 50      # on dessine seulement 50 scenarios
