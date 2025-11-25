@@ -1,4 +1,4 @@
-# Simulateur t prédicteur boursier (Monte Carlo)
+# Simulateur et prédicteur boursier (Monte Carlo)
 
 Une application web "Full stack" pour analyser les performances passées d'une action et projeter ses futurs possibles grâce aux statistiques.
 
