@@ -95,20 +95,36 @@ if not data.empty and len(data) > 0 :
     # ajout de la courbe moyenne
     moyenne_prediction = predictions.mean(axis=1)     # la moyenne de chaque jour pour les 1000 scénarios
     fig_monte_carlo.add_scatter(y=moyenne_prediction, mode="lines", name="Tendance moyenne",
-                                line=dict(color="red", width=4))
+                                line=dict(color="red", width=3))
     
     st.plotly_chart(fig_monte_carlo)
 
     # Statistiques de prédiction
     prix_finaux_predits = predictions[-1]
     prix_median = np.median(prix_finaux_predits)
-    var_95 = np.percentile(prix_finaux_predits, 5)  # sûr à 95% qu'on ne descendra pas plus bas que ce prix
+    valeur_risque_95 = np.percentile(prix_finaux_predits, 5)  # sûr à 95% qu'on ne descendra pas plus bas que ce prix
 
     col_a, col_b = st.columns(2)
     col_a.metric("Prix médian dans 1 an", f"{prix_median:.2f} $")
-    col_b.metric("Scénario Pessimiste (95% de risque)", f"{var_95:.2f} $")
+    col_b.metric("Scénario Pessimiste (95% de risque)", f"{valeur_risque_95:.2f} $")
 
-    st.caption("Note : Ceci est une projetion statistique. Les performances passées ne 'préjugent' pas les performances futures")
+    # Interprétation
+
+    # Calcul du pourcentage d'évolution (Prix médian vs Prix actuel)
+    variation_prevue = ((prix_median-prix_actuel)/prix_actuel) * 100
+
+    if variation_prevue > 0:
+        st.success(f"Tendance haussière : D'après la simulation, l'action pourrait gagner environ {variation_prevue:.2f}% d'ici un an à partir d'aujourd'hui.")
+    else:
+        st.warning(f"Tendance baissière : La simulation suggère une correction potentielle de {variation_prevue:.2f}%.")
+
+    st.info(f"""
+    **En résumé :** Le prix actuel est de **{prix_actuel:.2f}$**.
+    Selon le scénario médian, le prix cible est de **{prix_median:.2f}$**.
+    Attention toutefois, dans un scénario de crise, le prix pourrait descendre jusqu'à **{valeur_risque_95:.2f}$**.
+    """)
+
+    st.caption("Note : Ceci est une projetion statistique. Les performances passées ne 'préjugent' pas les performances futures.")
     st.caption("Réalisé par Yves Sery")
 
     # Au cas ou le tableau de données serait vide ou si l'on fait une erreur de syntaxe pour le symbole
