@@ -119,9 +119,9 @@ if not data.empty and len(data) > 0 :
         st.warning(f"Tendance baissière : La simulation suggère une correction potentielle de {variation_prevue:.2f}%.")
 
     st.info(f"""
-    **En résumé :** Le prix actuel est de **{prix_actuel:.2f}$**.
-    Selon le scénario médian, le prix cible est de **{prix_median:.2f}$**.
-    Attention toutefois, dans un scénario de crise, le prix pourrait descendre jusqu'à **{valeur_risque_95:.2f}$**.
+    **En résumé :** Le prix actuel est de {prix_actuel:.2f}$.
+    Selon le scénario médian, le prix cible est de {prix_median:.2f}$.
+    Attention toutefois, dans un scénario de crise, le prix pourrait descendre jusqu'à {valeur_risque_95:.2f}$.
     """)
 
     st.caption("Note : Ceci est une projetion statistique. Les performances passées ne 'préjugent' pas les performances futures.")
