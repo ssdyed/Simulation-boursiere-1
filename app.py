@@ -38,6 +38,10 @@ if not data.empty and len(data) > 0 :
     # Rendement jour i = (prix du jour i / Prix d'achat) * Montant investi
     # Prix au jour i est le prix de fermeture au jour i
     # Prix d'achat est le prix de fermeture du stock le jour de début de l'investissement
+
+    # Téléchargement du benchmark (S&P 500)
+    sp500 = yf.download("¨GSPC", start=f"{annee_debut}-01-01")
+
     data["Valeur_Portefeuille"] = (data["Close"] / data["Close"].iloc[0]) * montant_investi 
 
     # Graphique de la valeur du portefeuille
