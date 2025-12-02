@@ -16,7 +16,7 @@ stock = st.sidebar.text_input("Symbole de l'action (Yahoo Finance)", "AAPL")
 montant_investi = st.sidebar.number_input("Montant investi (en dollars canadien)", value=1000)
 
 # Année de début de l'investissement
-annee_debut = st.sidebar.slider("Année de début", 2004, 2024, 2019)
+annee_debut = st.sidebar.slider("Année de début", 2004, 2024, 2020)
 
 # Chargement des données
 st.write(f"Calcul de la rentabilité pour {stock} depuis {annee_debut}")
