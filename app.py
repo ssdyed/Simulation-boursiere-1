@@ -10,7 +10,7 @@ st.title("Simulation de rentabilité boursière")
 st.sidebar.header("Paramètres de simulation")
 
 # Choix du stock
-stock = st.sidebar.text_input("Symbole de l'action (Yahoo Finance)", "NVDA")
+stock = st.sidebar.text_input("Symbole de l'action (Yahoo Finance)", "AAPL")
 
 # Montant investi
 montant_investi = st.sidebar.number_input("Montant investi (en dollars canadien)", value=1000)
